@@ -13,11 +13,11 @@ var Queue = function(){
 var queueMethods = {
   enqueue: function(value){
     this.count += 1;
-    this.storage[count] = value;
+    this.storage[this.count] = value;
   },
   dequeue: function(){
-    var remove = this.storage[first];
-    delete this.storage[first];
+    var remove = this.storage[this.first];
+    delete this.storage[this.first];
     this.first += 1;
     return remove;
   },
