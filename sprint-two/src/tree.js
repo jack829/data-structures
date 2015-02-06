@@ -8,30 +8,26 @@ var Tree = function(value){
   return newTree;
 };
 
-
-
-
-
 var treeMethods = {};
 
 treeMethods.addChild = function(value){
-  this.children.push(Child(value));
+  this.children.push(Tree(value));
 };
 
 treeMethods.contains = function(target){
-  for(var i = 0;i<this.children.length;i++){
-    if(this.children[i].value === target){
-      return true;
+  if(this.value === target){
+    return true;
+  } else {
+    for(var i = 0;i<this.children.length;i++){
+      if(this.children[i].contains(target)){
+        return true;
+      }
     }
-  }
-  return false;
+    return false;
+  } 
 };
 
-var Child = function(item){
-  var child = {};
-  child.value = item;
-  return child;
-}
+
 /*
  * Complexity: What is the time complexity of the above functions?
  */
