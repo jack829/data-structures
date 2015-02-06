@@ -20,18 +20,24 @@ Graph.prototype.removeNode = function(node){
 };
 
 Graph.prototype.hasEdge = function(fromNode, toNode){
-  return this.nodes[fromNode] === this.nodes[toNode];
+  return this.nodes[fromNode][toNode] === this.nodes[toNode];
 };
 
 Graph.prototype.addEdge = function(fromNode, toNode){
-  this.nodes[fromNode] = this.nodes[toNode];
-  this.nodes[toNode] = this.nodes[fromNode];
+  this.nodes[fromNode][toNode] = this.nodes[toNode];
+  this.nodes[toNode][fromNode] = this.nodes[fromNode];
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
+  delete this.nodes[fromNode][toNode];
+  delete this.nodes[toNode][fromNode];
 };
 
 Graph.prototype.forEachNode = function(cb){
+  for(var key in this.nodes){
+    cb(key);
+  }
+  
 };
 
 /*
@@ -39,4 +45,8 @@ Graph.prototype.forEachNode = function(cb){
  */
 
 
+// var newGraph = new Graph(); // newGraph == {nodes: {}};
+// newGraph.addNode("kitten"); // newGraph == {nodes: {"kitten": {},}};
+// newGraph.addNode("puppy"); // newGraph == {nodes: {"kitten": {},"puppy": {}}};
+// newGRaph.addEdge("kitten", "puppy"); // newGraph == {nodes: {"kitten": {"puppy": newGraph["puppy"]},"puppy": {"kitten": newGraph["kitten"]}}};
 
