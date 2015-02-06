@@ -62,7 +62,8 @@ var Node = function(value){
 // head: {value: 4, node: null}
 
 // tail: {value: 5, node: null}
-// head: {value: 4, node: {value: 5, node: null}}
+// head: {value: 4, node: tail}
 
 // tail: {value: 6, node: null}
-// head: {value: 4, node: {value: 5, node: {value: 6, node: null}}}
+// list.head.next = {value: 5, nude: tail}
+// head: {value: 4, node: list.head.next}
