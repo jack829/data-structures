@@ -9,10 +9,12 @@ Graph.prototype.addNode = function(node){
 };
 
 Graph.prototype.contains = function(node){
-  if (this.nodes[node]){
-    return true;
-  }
-  return false;
+    return !!this.nodes[node];
+//  if (this.nodes[node]){
+//    return true;
+//  }
+//  return false;
+//    return this.nodes[node] ? true : false;
 };
 
 Graph.prototype.removeNode = function(node){
