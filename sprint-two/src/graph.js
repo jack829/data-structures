@@ -1,12 +1,18 @@
 
 
 var Graph = function(){
+  this.nodes = {};
 };
 
 Graph.prototype.addNode = function(node){
+  this.nodes[node] = {};
 };
 
 Graph.prototype.contains = function(node){
+  if (this.nodes[node]){
+    return true;
+  }
+  return false;
 };
 
 Graph.prototype.removeNode = function(node){
