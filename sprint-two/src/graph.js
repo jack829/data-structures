@@ -16,12 +16,16 @@ Graph.prototype.contains = function(node){
 };
 
 Graph.prototype.removeNode = function(node){
+  delete this.nodes[node];
 };
 
 Graph.prototype.hasEdge = function(fromNode, toNode){
+  return this.nodes[fromNode] === this.nodes[toNode];
 };
 
 Graph.prototype.addEdge = function(fromNode, toNode){
+  this.nodes[fromNode] = this.nodes[toNode];
+  this.nodes[toNode] = this.nodes[fromNode];
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
