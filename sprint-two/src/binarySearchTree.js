@@ -10,17 +10,20 @@ var binaryPrototype = {};
 
 binaryPrototype.insert = function(value){
   if (value < this.value) {
-    if (this.left === null){
-      this.left = BinarySearchTree(value);
-    } else {
-      this.left.insert(value);
-    } 
+    // if (this.left === null){
+    //   this.left = BinarySearchTree(value);
+    // } else {
+    //   this.left.insert(value);
+    // } 
+    this.left === null ? this.left = BinarySearchTree(value) : this.left.insert(value);
+    
   } else {
-      if (this.right === null){
-        this.right = BinarySearchTree(value);
-    } else {
-        this.right.insert(value);
-    } 
+    //   if (this.right === null){
+    //     this.right = BinarySearchTree(value);
+    // } else {
+    //     this.right.insert(value);
+    // } 
+    this.right === null ? this.right = BinarySearchTree(value) : this.right.insert(value);
   }
 };
 
