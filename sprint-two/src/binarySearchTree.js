@@ -25,13 +25,33 @@ binaryPrototype.insert = function(value){
 };
 
 binaryPrototype.contains = function(target){
-
+  if (this.value === target){
+    return true;
+  } else {
+    if(target < this.value && this.left){
+      return this.left.contains(target);
+    } else if (target > this.value && this.right) {
+      return this.right.contains(target);
+    }
+    return false;
+  }
 };
 
 binaryPrototype.depthFirstLog = function(func){
-
+  var funcCall = function(root){
+    func(root.value);
+    if (root.left){
+      funcCall(root.left);
+    }
+    if (root.right){
+      funcCall(root.right);
+    }
+  }
+  funcCall(this);
 };
 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+ 
