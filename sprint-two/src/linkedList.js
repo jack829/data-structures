@@ -33,6 +33,7 @@ var LinkedList = function(){
         return true;
       }
       currentNode = currentNode.next;
+      //currentNode.value === target ? return true : currentNode = currentNode.next;
     }
     return false;
   };
