@@ -50,8 +50,20 @@ binaryPrototype.depthFirstLog = function(func){
   funcCall(this);
 };
 
+//   func(this.value);
+//   if (this.left){
+//     this.left.depthFirstLog(func);
+//   }
+//   if (this.right) {
+//     this.right.depthFirstLog(func);
+//   }
+// };
+
 /*
  * Complexity: What is the time complexity of the above functions?
+insert: avergage - O(log N), worst - O(N)
+contains: avergage - O(log N), worst - O(N)
+depthFirstLog: avergage - O(log N), worst - O(N)
  */
 
- 
+
