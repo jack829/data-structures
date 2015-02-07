@@ -9,14 +9,20 @@ var LinkedList = function(){
       list.tail = Node(value);
       list.head = list.tail;
     } else {
-      list.tail = Node(value);
-      list.head.next = list.tail;
+      list.tail.next = Node(value);
+      list.tail = list.tail.next;
     }
+   
   };
 
   list.removeHead = function(){
     var remove = list.head.value;
-    list.head = list.head.next;
+    if(list.head.next){
+      list.head = list.head.next;
+    } else {
+      list.head = null;
+      list.tail = null;
+    }
     return remove;
   };
 
