@@ -41,17 +41,25 @@ binaryPrototype.contains = function(target){
 };
 
 binaryPrototype.depthFirstLog = function(func){
-  var funcCall = function(root){
-    func(root.value);
-    if (root.left){
-      funcCall(root.left);
-    }
-    if (root.right){
-      funcCall(root.right);
-    }
+  // var funcCall = function(root){
+  //   func(root.value);
+  //   if (root.left){
+  //     funcCall(root.left);
+  //   }
+  //   if (root.right){
+  //     funcCall(root.right);
+  //   }
+  // }
+  // funcCall(this);
+  func(this.value);
+  if (this.left){
+    this.left.depthFirstLog(func);
   }
-  funcCall(this);
+  if (this.right) {
+    this.right.depthFirstLog(func);
+  }
 };
+
 
 //   func(this.value);
 //   if (this.left){
