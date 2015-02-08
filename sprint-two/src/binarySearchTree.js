@@ -17,7 +17,7 @@ binaryPrototype.insert = function(value){
     // } 
     this.left === null ? this.left = BinarySearchTree(value) : this.left.insert(value);
     
-  } else {
+  } else if (value > this.value) {
     //   if (this.right === null){
     //     this.right = BinarySearchTree(value);
     // } else {
@@ -33,7 +33,7 @@ binaryPrototype.contains = function(target){
   } else {
     if(target < this.value && this.left){
       return this.left.contains(target);
-    } else if (target > this.value && this.right) {
+    } else if (this.right) {
       return this.right.contains(target);
     }
     return false;
